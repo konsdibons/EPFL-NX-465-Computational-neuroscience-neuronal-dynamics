@@ -6,7 +6,7 @@
 
 % Set page size and margins
 % Replace `letterpaper' with `a4paper' for UK/EU standard size
-\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm,marginparwidth=1.5cm]{geometry}
 
 \usepackage{chngcntr}
 
@@ -44,7 +44,7 @@ In this mini project
 \subsection*{0.1.}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/0.1.transfer_function.png}
+    \includegraphics[width=0.6\textwidth]{figures/0.1.transfer_function.png}
     \caption{For Poisson Neurons, firing rate \(r\) in dependence of the potential \(h\) is described by a sigmoid function with parameters \(\alpha\) and \(\beta\).}
     \label{fig:01}
 \end{figure}
@@ -72,7 +72,7 @@ The mean number of spikes per ms across the N neurons differs from the instantan
 With a larger number of neurons, the law of large numbers suggests that the mean spike count should more closely approximate the expected rate (instantaneous rate), reducing the variability seen in the smaller population.
 
 \section{Bump attractor}
-\subsection*{1.1.}
+\subsection*{1.1.}\label{sec:11}
 \begin{figure}[h!]
   \centering
   \begin{subfigure}[b]{0.32\textwidth}
@@ -101,17 +101,44 @@ For a recurrent network with \(N=300\) neurons the dynamics for different intera
 \subsection*{1.2.}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/1.1.transfer_function.png}
-    \caption{For Poisson Neurons, firing rate \(r\) in dependence of the potential \(h\) is described by a sigmoid function with parameters \(\alpha\) and \(\beta\).}
-    \label{fig:01}
+    \includegraphics[width=0.6\textwidth]{figures/1.2.stability_plot_J5.png}
+    \caption{The location of the bump \(\theta_\text{bump}\) in a recurrent network with \(J=\qty{5}{\pico\coulomb}\) shows drift effects while having more stable phases in between.}
+    \label{fig:11}
 \end{figure}
-The location of the bump \(\theta_\text{bump}\) is found using a weighted version of the circular mean.
+The location of the bump \(\theta_\text{bump}\) over time, shown in \cref{fig:11}, is found using a weighted version of the circular mean.
 
+\subsection*{1.3.}
+The location of the bump can drift due to the inherent stochasticity in the firing of Poisson neurons. Since the spikes are generated according to a Poisson process, there is randomness in the timing of each neuron's firing. This randomness can cause fluctuations in the collective activity, leading to the drift of the bump's location over time.
+
+To improve the stability of the bump and reduce drift, the parameters of the model could be modified in the following ways:
+\begin{itemize}
+    \item Increase the Number of Neurons (\(N\)): A larger number of neurons can average out the randomness and reduce fluctuations, leading to a more stable bump. With more neurons, the effects of random spikes are less pronounced on the overall activity pattern.
+    \item Increase the time constant (\(\tau\)): A larger time constant can smooth the fluctuations in the activity, as the potential decays more slowly. While potentially increasing the stability, this might reduce the network's response to changes.
+    \item Decrease the time step (\(\Delta t\)): A smaller time step can improve the qualitiy of the numerical integration, capturing the dynamics of the network more precisely and potentially reducing drift.
+    \item Interaction Strength (\(J\)): As shown in \cref{sec:11} the choice of \(J\) plays a role on the stability of the bump.
+    \item Transfer Function Parameters (\(\alpha\),\(\beta\)): The shape of the transfer function influences the neuron's responsiveness to input and can therefore also be used to adjust for stability.
+\end{itemize}
+
+\subsection*{1.4.}
 
 
 \section{Integration}
 
 \section{Path integration}
+\subsection{}
+To generate the random trajectory in two dimensions, I used a vector to describe the position of each dimension in the Cartesian plane ($x$ and $y$). I then chose a fixed starting position (since this is arbitrary and can be transformed to any starting position) as the point $[0,0]$.
+At each time point a random future direction (the heading, $\theta$) is drawn from a uniform distribution and the cosine and sine of the heading is used to change $x$ and $y$ values respectively based on the previous values and a very small step size $S$: 
+\begin{equation*}
+    x{t} = x_{t - 1} S cos(\theta_{t})
+\end{equation*}
+\begin{equation}
+    y{t} = y_{t - 1} S sin(\theta_{t})
+\end{equation}
 
-
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{konsta_31.png}
+    \caption{Caption}
+    \label{fig:enter-label}
+\end{figure}
 \end{document}
