@@ -1,0 +1,52 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+\usepackage{chngcntr}
+
+\counterwithin*{section}{part} % Resets section counter after every part
+\renewcommand{\thesection}{Ex \arabic{section}.} % Prefixing section numbers with "Ex"
+\setcounter{section}{-1} % Starting section count from -1 so that it begins with "Ex 0."
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\usepackage[product-units = power]{siunitx}
+\sisetup{round-precision=2, separate-uncertainty = true, detect-weight=true, detect-family=true}
+\usepackage[capitalise,nameinlink]{cleveref}
+\usepackage{physics}
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+\usepackage[version=4]{mhchem}
+
+\usepackage{booktabs}
+
+\title{MP2\\Path Integration using Coupled Bump Attractors\\---\\Computational neurosciences: neuronal dynamics\\NX-465}
+\author{Konstantin Weindel}
+
+\begin{document}
+\maketitle
+
+
+\section*{Introduction}
+In this mini project 
+
+\section{Getting Started: Poisson neurons}
+\subsection*{0.1.}
+
+
+\section{Bump attractor}
+
+\section{Integration}
+
+\section{Path integration}
+
+
+\end{document}
