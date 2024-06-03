@@ -44,7 +44,7 @@ In this mini project
 \subsection*{0.1.}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{figures/0.1.transfer_function.png}
+    \includegraphics[width=0.5\textwidth]{figures/0.1.transfer_function.png}
     \caption{For Poisson Neurons, firing rate \(r\) in dependence of the potential \(h\) is described by a sigmoid function with parameters \(\alpha\) and \(\beta\).}
     \label{fig:01}
 \end{figure}
@@ -101,7 +101,7 @@ For a recurrent network with \(N=300\) neurons the dynamics for different intera
 \subsection*{1.2.}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{figures/1.2.stability_plot_J5.png}
+    \includegraphics[width=0.5\textwidth]{figures/1.2.stability_plot_J5.png}
     \caption{The location of the bump \(\theta_\text{bump}\) in a recurrent network with \(J=\qty{5}{\pico\coulomb}\) shows drift effects while having more stable phases in between.}
     \label{fig:11}
 \end{figure}
@@ -120,6 +120,27 @@ To improve the stability of the bump and reduce drift, the parameters of the mod
 \end{itemize}
 
 \subsection*{1.4.}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/1.4.extinput_plot_J5.png}
+    \caption{Raster plot of the spikes of the recurrent network from above, now driven with an external input.}
+    \label{fig:14}
+\end{figure}
+
+The external current is defined as a Gaussian function centered at two different locations, \( \mu^{(1)} \) and \( \mu^{(2)} \), with a standard deviation \( \sigma \).
+The effect of this input on the bump can be observed in the raster plot in \cref{fig:14}. Typically, the external current will cause the bump to shift towards the location of the current. This happens because the neurons at the location of the current receive additional input, increasing their firing rate and attracting the bump.
+The connectivity profile, which is based on the cosine of the difference in positions, supports this behavior. Neurons that are closer in position have stronger connections (higher cosine values), so when a group of neurons receives an external current, it can influence its neighbors more strongly than distant neurons. This localized increase in activity can pull the bump towards the current's location.
+
+\subsection*{1.5.}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/1.4.extinput_plot_J5.png}
+    \caption{Raster plot of the spikes of the recurrent network from above, now driven with an external input.}
+    \label{fig:14}
+\end{figure}
+
+If the connectivity in the network is given by \( w(x_i - \varphi, x_j) \), where \( \varphi \) is a small angle, this would introduce a phase shift in the interactions between neurons. The connectivity would no longer be symmetric around zero, and this asymmetry would cause the bump to drift in the direction of the phase shift.
+
 
 
 \section{Integration}
@@ -127,7 +148,7 @@ To improve the stability of the bump and reduce drift, the parameters of the mod
 \section{Path integration}
 \subsection{}
 To generate the random trajectory in two dimensions, I used a vector to describe the position of each dimension in the Cartesian plane ($x$ and $y$). I then chose a fixed starting position (since this is arbitrary and can be transformed to any starting position) as the point $[0,0]$.
-At each time point a random future direction (the heading, $\theta$) is drawn from a uniform distribution and the cosine and sine of the heading is used to change $x$ and $y$ values respectively based on the previous values and a very small step size $S$: 
+At each time point a random future direction (the heading, $\theta$) is drawn from a uniform distribution and the cosine and sine of the heading is used to change $x$ and $y$ values respectively based on the previous values and a step size $S$: 
 \begin{equation*}
     x{t} = x_{t - 1} S cos(\theta_{t})
 \end{equation*}
@@ -141,4 +162,6 @@ At each time point a random future direction (the heading, $\theta$) is drawn fr
     \caption{Caption}
     \label{fig:enter-label}
 \end{figure}
+
+
 \end{document}
