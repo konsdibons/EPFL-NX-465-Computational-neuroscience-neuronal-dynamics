@@ -77,26 +77,37 @@ With a larger number of neurons, the law of large numbers suggests that the mean
   \centering
   \begin{subfigure}[b]{0.32\textwidth}
     \includegraphics[width=\textwidth]{figures/1.1.raster_plot_J5.png}
-    \caption{\(J=5\).}
-    \label{fig:sub1}
+    \caption{\(J=\qty{5}{\pico\coulomb}\).}
+    \label{fig:J5}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.32\textwidth}
-    \includegraphics[width=\textwidth]{figures/1.1.raster_plot_J7.png}
-    \caption{\(J=7\).}
-    \label{fig:sub2}
+    \includegraphics[width=\textwidth]{figures/1.1.raster_plot_J6.png}
+    \caption{\(J=\qty{6}{\pico\coulomb}\).}
+    \label{fig:J6}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.32\textwidth}
     \includegraphics[width=\textwidth]{figures/1.1.raster_plot_J15.png}
-    \caption{Third subplot}
-    \label{fig:sub3}
+    \caption{\(J=\qty{15}{\pico\coulomb}\).}
+    \label{fig:J15}
   \end{subfigure}
-  \caption{Three subplots side by side}
-  \label{fig:test}
+  \caption{The dynamics of a recurrent network with no external input with varying degrees of interaction strength \(J\).}
+  \label{fig:J}
 \end{figure}
 
-For \(N=300\) neurons
+For a recurrent network with \(N=300\) neurons the dynamics for different interaction strengths \(J\) are shown in the raster plots in \cref{fig:J}. With increasing interaction strength \(J\) a more and more stable bump is attracted and maintained in the network. In the given setup, stability can be assumed from \(J>\qty{9}{\pico\coulomb}\).
+
+\subsection*{1.2.}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/1.1.transfer_function.png}
+    \caption{For Poisson Neurons, firing rate \(r\) in dependence of the potential \(h\) is described by a sigmoid function with parameters \(\alpha\) and \(\beta\).}
+    \label{fig:01}
+\end{figure}
+The location of the bump \(\theta_\text{bump}\) is found using a weighted version of the circular mean.
+
+
 
 \section{Integration}
 
